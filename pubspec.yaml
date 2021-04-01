@@ -25,11 +25,15 @@ dependencies:
     sdk: flutter
   build_runner: any
   cupertino_icons: ^1.0.2
+  dio: ^4.0.0
   easy_localization: ^3.0.0
   flutter_mobx: ^1.1.0+2
-  mobx: ^1.2.1+4
+  json_annotation: ^3.1.1
+  json_serializable: ^3.5.1
+  mobx: ^1.1.0
   mobx_codegen: ^1.1.2
   provider: ^5.0.0
+  shared_preferences: ^2.0.5
 
 dev_dependencies:
   flutter_test:
