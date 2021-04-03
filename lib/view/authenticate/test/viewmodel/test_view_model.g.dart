@@ -16,6 +16,21 @@ mixin _$TestViewModel on _TestViewModelBase, Store {
           Computed<bool>(() => super.isEven, name: '_TestViewModelBase.isEven'))
       .value;
 
+  final _$isLoadingAtom = Atom(name: '_TestViewModelBase.isLoading');
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   final _$numberAtom = Atom(name: '_TestViewModelBase.number');
 
   @override
@@ -48,6 +63,7 @@ mixin _$TestViewModel on _TestViewModelBase, Store {
   @override
   String toString() {
     return '''
+isLoading: ${isLoading},
 number: ${number},
 isEven: ${isEven}
     ''';

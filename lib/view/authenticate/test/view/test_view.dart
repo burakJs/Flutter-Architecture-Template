@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../../../core/constants/enums/locale_keys_enum.dart';
-import '../../../../core/init/cache/locale_manager.dart';
 
 import '../../../../core/base/state/base_state.dart';
 import '../../../../core/base/view/base_widget.dart';
+import '../../../../core/constants/enums/locale_keys_enum.dart';
 import '../../../../core/extension/string_extension.dart';
+import '../../../../core/init/cache/locale_manager.dart';
 import '../../../../core/init/lang/language_manager.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/test_view_model.dart';
@@ -30,16 +30,18 @@ class _TestViewState extends BaseState<TestView> {
   }
 
   Widget get scaffoldBody => Scaffold(
-        appBar: AppBar(
-          leading: Text(LocaleManager.instance.getStringValue(PreferencesKey.TOKEN)),
-          title: textWelcomeWidget(),
-          actions: [iconButtonChangeTheme()],
-        ),
+        appBar: appBar(),
         floatingActionButton: floatingActionButtonNumberIncrement,
         body: textNumber,
       );
 
-  Text textWelcomeWidget() => Text(LocaleKeys.welcome.locale);
+  AppBar appBar() {
+    return AppBar(
+      leading: Text(LocaleManager.instance.getStringValue(PreferencesKey.TOKEN)),
+      title: textWelcomeWidget(),
+      actions: [iconButtonChangeTheme()],
+    );
+  }
 
   IconButton iconButtonChangeTheme() {
     return IconButton(
@@ -50,17 +52,29 @@ class _TestViewState extends BaseState<TestView> {
     );
   }
 
+  Widget get textNumber {
+    return Column(
+      children: [
+        Observer(
+          builder: (context) => Text(
+            viewModel.number.toString(),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Text textWelcomeWidget() => Text(LocaleKeys.welcome.locale);
+
   FloatingActionButton get floatingActionButtonNumberIncrement {
     return FloatingActionButton(
       onPressed: () => viewModel.incrementNumber(),
     );
   }
+}
 
-  Widget get textNumber {
-    return Observer(
-      builder: (context) => Text(
-        viewModel.number.toString(),
-      ),
-    );
-  }
+extension _FormArea on _TestViewState {
+  TextFormField get mailField => TextFormField(
+        validator: (value) => value.isValidEmail,
+      );
 }
