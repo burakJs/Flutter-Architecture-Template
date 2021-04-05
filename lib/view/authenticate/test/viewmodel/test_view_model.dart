@@ -4,7 +4,8 @@ import 'package:provider/provider.dart';
 
 import '../../../../core/base/model/base_view_model.dart';
 import '../../../../core/constants/enums/app_theme_enum.dart';
-import '../../../../core/init/network/network_manager.dart';
+import '../../../../core/constants/enums/http_request_enum.dart';
+import '../../../../core/init/network/IResponseModel.dart';
 import '../../../../core/init/notifier/theme_notifier.dart';
 import '../model/test_model.dart';
 
@@ -34,9 +35,12 @@ abstract class _TestViewModelBase with Store, BaseViewModel {
     Provider.of<ThemeNotifier>(context, listen: false).changeValue(AppThemes.DARK);
   }
 
-  void getSampleRequest() {
+  Future<void> getSampleRequest() async {
     isLoading = true;
-    NetworkManager.instance.dioGet<TestModel>('x', TestModel());
+    final response = await coreDio.fetchData<IResponseModel<List<TestModel>>, TestModel>('x',
+        type: HttpTypes.GET, parseModel: TestModel());
+    if (response is List<TestModel>) {
+    } else {}
     isLoading = false;
   }
 }
