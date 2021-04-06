@@ -1,13 +1,15 @@
-import 'dart:html';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:fluttermvvmtemplate/core/base/model/base_error.dart';
 
 import '../../base/model/base_model.dart';
 import '../../constants/enums/http_request_enum.dart';
 import '../../extension/network_extension.dart';
 import 'ICoreDio.dart';
 import 'IResponseModel.dart';
+
 part './network_core/core_operations.dart';
 
 class CoreDio with DioMixin implements Dio, ICoreDio {
@@ -15,7 +17,7 @@ class CoreDio with DioMixin implements Dio, ICoreDio {
 
   CoreDio(this.options) {
     this.options = options;
-    // this.interceptors.addAll(Iterable<Interceptor> ); HATA !!!
+    // this.interceptors.addAll(InterceptorsWrapper());
     // this.httpClientAdapter = DefaultHttpClientAdapter();
   }
 
@@ -32,11 +34,11 @@ class CoreDio with DioMixin implements Dio, ICoreDio {
     switch (response.statusCode) {
       case HttpStatus.ok:
       case HttpStatus.accepted:
-        final model = _responseParser<R>(parseModel, _responseParser);
+        final model = _responseParser<R, T>(parseModel, _responseParser);
         return ResponseModel<R>(data: model);
         break;
       default:
-        return ResponseModel();
+        return ResponseModel(error: BaseError('message'));
     }
   }
 }
