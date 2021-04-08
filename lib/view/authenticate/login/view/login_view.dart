@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/base/view/base_widget.dart';
 import '../../../../core/extension/context_extension.dart';
-import '../../../_widgets/button/facebook_button.dart';
+import '../../../_product/_widgets/button/facebook_button.dart';
 import '../viewmodel/login_view_model.dart';
 
 class LoginView extends StatelessWidget {

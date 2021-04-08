@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:fluttermvvmtemplate/core/base/model/base_error.dart';
 
+import '../../base/model/base_error.dart';
 import '../../base/model/base_model.dart';
 import '../../constants/enums/http_request_enum.dart';
 import '../../extension/network_extension.dart';

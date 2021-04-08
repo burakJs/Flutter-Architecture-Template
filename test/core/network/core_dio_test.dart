@@ -9,7 +9,7 @@ import 'dio_mock_model.dart';
 main() {
   ICoreDioFull service;
   setUp(() {
-    service = CoreDioMock(BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com/posts'));
+    service = CoreDioMock(BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com'));
   });
   test('CoreDio List', () async {
     final data = await service.fetchData<List<PostModel>, PostModel>(

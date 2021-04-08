@@ -20,9 +20,18 @@ class LocaleManager {
     return;
   }
 
+  Future<void> clearAll() async {
+    await _preferences.clear();
+  }
+
   Future<void> setStringValue(PreferencesKey key, String value) async {
     await _preferences.setString(key.toString(), value);
   }
 
+  Future<void> setBoolValue(PreferencesKey key, bool value) async {
+    await _preferences.setBool(key.toString(), value);
+  }
+
   String getStringValue(PreferencesKey key) => _preferences.getString(key.toString() ?? '');
+  bool getBoolValue(PreferencesKey key) => _preferences.getBool(key.toString() ?? false);
 }

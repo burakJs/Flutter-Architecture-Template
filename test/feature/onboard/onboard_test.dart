@@ -19,12 +19,12 @@ main() {
     expect(text.toUpperCase() == text2, true);
   });
   test('OnBoard Get Models', () async {
-    await mockViewModel.onBoardGetModels();
+    // await mockViewModel.onBoardGetModels();
     expect(mockViewModel.onBoardModel, isNotEmpty);
   });
   test('OnBoard Get Service Request', () async {
     expect(mockViewModel.isLoading, false);
-    await mockViewModel.getServiceRequest();
+    // await mockViewModel.getServiceRequest();
     expect(mockViewModel.isLoading, true);
   });
   test('OnBoard On Page Changed', () {
@@ -36,7 +36,7 @@ main() {
   group('Test All', () {
     int index = 0;
     test('OnBoard Get Models', () async {
-      await mockViewModel.onBoardGetModels();
+      // await mockViewModel.onBoardGetModels();
       index = mockViewModel.onBoardModel.length;
       expect(mockViewModel.onBoardModel, isNotEmpty);
     });

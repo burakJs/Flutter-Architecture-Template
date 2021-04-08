@@ -15,7 +15,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
   // ThemeData get theme => redTheme;
   ThemeData get theme => ThemeData(
         fontFamily: ApplicationConstants.FONT_FAMILY,
-        colorScheme: _appColorsScheme(),
+        colorScheme: _appColorsScheme,
         textTheme: textTheme(),
         tabBarTheme: TabBarTheme(
           labelPadding: paddingInsetsAll.lowPaddingAll,
@@ -32,12 +32,12 @@ class AppThemeLight extends AppTheme with ILightTheme {
     );
   }
 
-  ColorScheme _appColorsScheme() {
+  ColorScheme get _appColorsScheme {
     return ColorScheme(
       primary: colorSchemeLight.black,
       primaryVariant: Colors.white,
       secondary: Colors.yellow,
-      secondaryVariant: Colors.green,
+      secondaryVariant: colorSchemeLight.azure,
       surface: Colors.deepOrange,
       background: Colors.purple,
       error: Colors.redAccent,

@@ -1,1 +1,1 @@
-enum PreferencesKey { TOKEN }
+enum PreferencesKey { TOKEN, IS_FIRST_APP }

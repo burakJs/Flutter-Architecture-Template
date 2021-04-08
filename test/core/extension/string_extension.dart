@@ -5,6 +5,6 @@ main() {
   setUp(() {});
   test('Email Regexp', () {
     String email = 'joedoe@gmail.com';
-    expect(email.isValidEmail, true);
+    expect(email.isValidEmail, null);
   });
 }
