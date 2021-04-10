@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fluttermvvmtemplate/core/constants/enums/locale_keys_enum.dart';
-import 'package:fluttermvvmtemplate/core/constants/navigation/navigation_constants.dart';
+import 'package:mobx/mobx.dart';
+
 import '../../../../core/base/model/base_view_model.dart';
-import '../../../../core/extension/string_extension.dart';
+import '../../../../core/constants/enums/locale_keys_enum.dart';
+import '../../../../core/constants/navigation/navigation_constants.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../_product/_constant/image_path_svg.dart';
 import '../model/on_board_model.dart';
-import 'package:mobx/mobx.dart';
+
 part 'on_board_view_model.g.dart';
 
 class OnBoardViewModel = _OnBoardViewModelBase with _$OnBoardViewModel;

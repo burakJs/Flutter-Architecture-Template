@@ -1,14 +1,12 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fluttermvvmtemplate/core/components/text/auto_local_text.dart';
-import 'package:fluttermvvmtemplate/view/_product/_widgets/avatar/on_board_circle.dart';
-import 'package:fluttermvvmtemplate/view/authenticate/onboard/model/on_board_model.dart';
 
 import '../../../../core/base/view/base_widget.dart';
+import '../../../../core/components/text/auto_local_text.dart';
 import '../../../../core/extension/context_extension.dart';
-import '../../../_product/_constant/image_path_svg.dart';
+import '../../../_product/_widgets/avatar/on_board_circle.dart';
+import '../model/on_board_model.dart';
 import '../view-model/on_board_view_model.dart';
 
 class OnBoardView extends StatelessWidget {

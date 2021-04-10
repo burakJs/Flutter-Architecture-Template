@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttermvvmtemplate/core/extension/context_extension.dart';
+import '../../../../core/extension/context_extension.dart';
 
 class OnBoardCircle extends StatelessWidget {
   final isSelected;

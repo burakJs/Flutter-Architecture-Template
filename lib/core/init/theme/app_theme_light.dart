@@ -16,7 +16,14 @@ class AppThemeLight extends AppTheme with ILightTheme {
   ThemeData get theme => ThemeData(
         fontFamily: ApplicationConstants.FONT_FAMILY,
         colorScheme: _appColorsScheme,
+        scaffoldBackgroundColor: Color(0xfff1f3f8),
         textTheme: textTheme(),
+        inputDecorationTheme: InputDecorationTheme(
+          focusColor: Colors.black12,
+          enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
+          border: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
+          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
+        ),
         tabBarTheme: TabBarTheme(
           labelPadding: paddingInsetsAll.lowPaddingAll,
           unselectedLabelStyle: textThemeLight.headline4.copyWith(color: colorSchemeLight.gray),
@@ -45,7 +52,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
       onSecondary: Colors.amber,
       onSurface: Colors.indigoAccent,
       onBackground: Colors.black12,
-      onError: Colors.cyanAccent,
+      onError: Color(0xffffc93c),
       brightness: Brightness.light,
     );
   }

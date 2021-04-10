@@ -75,6 +75,6 @@ class _TestViewState extends BaseState<TestView> {
 
 extension _FormArea on _TestViewState {
   TextFormField get mailField => TextFormField(
-        validator: (value) => value.isValidEmail,
+        validator: (value) => value.isValidEmail ? null : 'Email is invalid',
       );
 }

@@ -13,5 +13,15 @@
             {
                 "title":"Make It Good","desc":"You are not alone. You have unique ability to go to another world"
             }
+    },
+    "login":{
+        "tab1":"Login",
+        "tab2":"Sign Up",
+        "email":"Email",
+        "password":"Password",
+        "forgotText":"Forgot Password",
+        "login":"Login",
+        "dontAccount":"Don't have account"
+
     }
 }

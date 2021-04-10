@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:fluttermvvmtemplate/core/constants/enums/http_request_enum.dart';
 import 'package:fluttermvvmtemplate/core/init/cache/locale_manager.dart';
+import 'package:fluttermvvmtemplate/core/init/navigation/navigation_service.dart';
 import 'package:fluttermvvmtemplate/core/init/network/core_dio.dart';
 
 import 'package:fluttermvvmtemplate/core/init/network/ICoreDio.dart';
@@ -10,81 +11,91 @@ import 'package:fluttermvvmtemplate/view/authenticate/onboard/view-model/on_boar
 
 import '../../core/network/dio_mock_model.dart';
 
-class OnBoardMockViewModel implements OnBoardViewModel {
-  @override
-  BuildContext context;
+//TODO: Test
+// class OnBoardMockViewModel implements OnBoardViewModel {
+//   @override
+//   BuildContext context;
 
-  @override
-  ICoreDio coreDio;
+//   @override
+//   ICoreDio coreDio;
 
-  IMockStringHelper stringHelper;
-  @override
-  int currentPageIndex;
+//   IMockStringHelper stringHelper;
+//   @override
+//   int currentPageIndex;
 
-  bool isLoading = false;
+//   bool isLoading = false;
 
-  @override
-  List<OnBoardModel> onBoardModel;
+//   @override
+//   List<OnBoardModel> onBoardModel;
 
-  @override
-  void init() {
-    coreDio = CoreDio(BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com/posts'));
-    stringHelper = MockStringHelper();
-  }
+//   @override
+//   void init() {
+//     coreDio = CoreDio(BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com/posts'));
+//     stringHelper = MockStringHelper();
+//   }
 
-  @override
-  void onPageChanged(int value) {
-    currentPageIndex = value;
-  }
+//   @override
+//   void onPageChanged(int value) {
+//     currentPageIndex = value;
+//   }
 
-  // Future<void> onBoardGetModels() async {
-  //   final response = await coreDio.fetchData<List<PostModel>, PostModel>(
-  //     '/posts',
-  //     type: HttpTypes.GET,
-  //     parseModel: PostModel(),
-  //   );
-  //   if (response.data is List) {
-  //     onBoardModel =
-  //         response.data.map((e) => OnBoardModel(stringHelper.toUpper(e.title))).toList().cast<OnBoardModel>();
-  //   }
-  // }
+//   Future<void> onBoardGetModels() async {
+//     final response = await coreDio.fetchData<List<PostModel>, PostModel>(
+//       '/posts',
+//       type: HttpTypes.GET,
+//       parseModel: PostModel(),
+//     );
+//     if (response.data is List) {
+//       onBoardModel =
+//           response.data.map((e) => OnBoardModel(stringHelper.toUpper(e.title))).toList().cast<OnBoardModel>();
+//     }
+//   }
 
-  // Future<void> getServiceRequest() async {
-  //   isLoading = true;
-  //   await onBoardGetModels();
-  //   isLoading = false;
-  // }
+//   Future<void> getServiceRequest() async {
+//     isLoading = true;
+//     await onBoardGetModels();
+//     isLoading = false;
+//   }
 
-  @override
-  void setContext(BuildContext context) {}
+//   @override
+//   void setContext(BuildContext context) {}
 
-  @override
-  List<OnBoardModel> onBoardItems;
+//   @override
+//   List<OnBoardModel> onBoardItems;
 
-  @override
-  int currentIndex;
+//   @override
+//   int currentIndex;
 
-  @override
-  LocaleManager localeManager;
+//   @override
+//   LocaleManager localeManager;
 
-  @override
-  void changeCurrentIndex(int val) {
-    // TODO: implement changeCurrentIndex
-  }
+//   @override
+//   void changeCurrentIndex(int val) {
+//     // TODO: implement changeCurrentIndex
+//   }
 
-  @override
-  void completeToOnBoard() {
-    // TODO: implement completeToOnBoard
-  }
-}
+//   @override
+//   NavigationService navigationService;
 
-abstract class IMockStringHelper {
-  String toUpper(String data);
-}
+//   @override
+//   void changeLoading() {
+//     // TODO: implement changeLoading
+//   }
 
-class MockStringHelper extends IMockStringHelper {
-  @override
-  String toUpper(String data) {
-    return data.toUpperCase();
-  }
-}
+//   @override
+//   Future<void> completeToOnBoard() {
+//     // TODO: implement completeToOnBoard
+//     throw UnimplementedError();
+//   }
+// }
+
+// abstract class IMockStringHelper {
+//   String toUpper(String data);
+// }
+
+// class MockStringHelper extends IMockStringHelper {
+//   @override
+//   String toUpper(String data) {
+//     return data.toUpperCase();
+//   }
+// }

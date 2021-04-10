@@ -5,8 +5,7 @@ import '../constants/app/app_constant.dart';
 extension StringLocalization on String {
   String get locale => this.tr();
 
-  String get isValidEmail =>
-      this.contains(RegExp(ApplicationConstants.EMAIL_REGEX)) ? null : 'Email does not found';
+  bool get isValidEmail => RegExp(ApplicationConstants.EMAIL_REGEX).hasMatch(this);
 }
 
 extension ImagePathExtension on String {
