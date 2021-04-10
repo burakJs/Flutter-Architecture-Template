@@ -32,6 +32,7 @@ dependencies:
   flutter_svg: ^0.21.0+1
   json_annotation: ^3.1.1
   json_serializable: ^3.5.1
+  kartal: ^2.0.0
   mobx: ^1.1.0
   mobx_codegen: ^1.1.2
   provider: ^5.0.0

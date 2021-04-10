@@ -22,6 +22,16 @@
         "forgotText":"Forgot Password",
         "login":"Login",
         "dontAccount":"Don't have account"
-
+    },
+"menu":{
+    "build":{
+        "tabbar":{
+            "tab1":"Latest",
+            "tab2":"Decorative",
+            "tab3":"Music",
+            "tab4":"Style"
+        },
+        "subTitle":"Recommended"
     }
+}
 }

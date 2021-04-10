@@ -20,5 +20,13 @@ abstract class  LocaleKeys {
   static const login_login = 'login.login';
   static const login_dontAccount = 'login.dontAccount';
   static const login = 'login';
+  static const menu_build_tabbar_tab1 = 'menu.build.tabbar.tab1';
+  static const menu_build_tabbar_tab2 = 'menu.build.tabbar.tab2';
+  static const menu_build_tabbar_tab3 = 'menu.build.tabbar.tab3';
+  static const menu_build_tabbar_tab4 = 'menu.build.tabbar.tab4';
+  static const menu_build_tabbar = 'menu.build.tabbar';
+  static const menu_build_subTitle = 'menu.build.subTitle';
+  static const menu_build = 'menu.build';
+  static const menu = 'menu';
 
 }

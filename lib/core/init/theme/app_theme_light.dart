@@ -18,25 +18,35 @@ class AppThemeLight extends AppTheme with ILightTheme {
         colorScheme: _appColorsScheme,
         scaffoldBackgroundColor: Color(0xfff1f3f8),
         textTheme: textTheme(),
+        appBarTheme: ThemeData.light()
+            .appBarTheme
+            .copyWith(brightness: Brightness.light, iconTheme: IconThemeData(color: Colors.black87, size: 21)),
         inputDecorationTheme: InputDecorationTheme(
           focusColor: Colors.black12,
           enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
           border: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
           focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
         ),
-        tabBarTheme: TabBarTheme(
-          labelPadding: paddingInsetsAll.lowPaddingAll,
-          unselectedLabelStyle: textThemeLight.headline4.copyWith(color: colorSchemeLight.gray),
-        ),
+        tabBarTheme: tabBarTheme,
         floatingActionButtonTheme: ThemeData.light().floatingActionButtonTheme,
       );
 
-  TextTheme textTheme() {
-    return TextTheme(
-      headline1: textThemeLight.headline1,
-      headline2: textThemeLight.headline2,
-      overline: textThemeLight.overline,
+  TabBarTheme get tabBarTheme {
+    return TabBarTheme(
+      labelPadding: paddingInsetsAll.lowPaddingAll,
+      labelColor: _appColorsScheme.onSecondary,
+      labelStyle: textThemeLight.headline5,
+      unselectedLabelColor: _appColorsScheme.onSecondary.withOpacity(0.2),
+      // unselectedLabelStyle: textThemeLight.headline4.copyWith(color: colorSchemeLight.gray),
     );
+  }
+
+  TextTheme textTheme() {
+    return ThemeData.light().textTheme.copyWith(
+          headline1: textThemeLight.headline1,
+          headline2: textThemeLight.headline2,
+          overline: textThemeLight.overline,
+        );
   }
 
   ColorScheme get _appColorsScheme {
