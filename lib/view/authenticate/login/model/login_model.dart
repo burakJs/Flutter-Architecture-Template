@@ -17,6 +17,6 @@ class LoginModel extends INetworkModel<LoginModel> {
 
   @override
   Map<String, dynamic> toJson() {
-    _$LoginModelToJson(this);
+    return _$LoginModelToJson(this);
   }
 }

@@ -7,28 +7,36 @@ import 'light/ilight_theme_interface.dart';
 class AppThemeLight extends AppTheme with ILightTheme {
   static AppThemeLight _instance;
   static AppThemeLight get instance {
-    if (_instance == null) _instance = AppThemeLight._init();
+    _instance ??= AppThemeLight._init();
     return _instance;
   }
 
   AppThemeLight._init();
   // ThemeData get theme => redTheme;
+  @override
   ThemeData get theme => ThemeData(
         fontFamily: ApplicationConstants.FONT_FAMILY,
         colorScheme: _appColorsScheme,
         scaffoldBackgroundColor: Color(0xfff1f3f8),
         textTheme: textTheme(),
-        appBarTheme: ThemeData.light()
-            .appBarTheme
-            .copyWith(brightness: Brightness.light, iconTheme: IconThemeData(color: Colors.black87, size: 21)),
+        appBarTheme: ThemeData.light().appBarTheme.copyWith(brightness: Brightness.light, iconTheme: IconThemeData(color: Colors.black87, size: 21)),
         inputDecorationTheme: InputDecorationTheme(
           focusColor: Colors.black12,
-          enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
-          border: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
-          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
+          labelStyle: TextStyle(),
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.zero,
+          filled: true,
+          enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 0.3)),
+          // border: OutlineInputBorder(borderSide: BorderSide(width: 0.1)),
+          focusedBorder: OutlineInputBorder(),
         ),
         tabBarTheme: tabBarTheme,
         floatingActionButtonTheme: ThemeData.light().floatingActionButtonTheme,
+        buttonTheme: ThemeData.light().buttonTheme.copyWith(
+              colorScheme: ColorScheme.light(
+                onError: Color(0xffff2d55),
+              ),
+            ),
       );
 
   TabBarTheme get tabBarTheme {
@@ -56,7 +64,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
       secondary: Colors.yellow,
       secondaryVariant: colorSchemeLight.azure,
       surface: Colors.deepOrange,
-      background: Colors.purple,
+      background: Color(0xfff6f9fc),
       error: Colors.redAccent,
       onPrimary: Colors.black,
       onSecondary: Colors.amber,

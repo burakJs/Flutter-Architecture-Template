@@ -13,9 +13,9 @@ class FaceBookButton extends StatelessWidget {
       onPressed: () {
         final isLengthSixCharacter = 'adaasddasad'.length == 6;
         if (isLengthSixCharacter) {
-          this.onComplete(FaceBookModel('asdsadsad', 'asdasdasd'));
+          onComplete(FaceBookModel('asdsadsad', 'asdasdasd'));
         } else {
-          this.onComplete(null, errorMessage: 'Facebook user not found');
+          onComplete(null, errorMessage: 'Facebook user not found');
         }
       },
     );

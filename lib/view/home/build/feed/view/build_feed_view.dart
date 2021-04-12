@@ -1,13 +1,11 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:fluttermvvmtemplate/core/base/view/base_widget.dart';
-import 'package:fluttermvvmtemplate/core/components/decoration/circle_decoration.dart';
-import 'package:fluttermvvmtemplate/core/init/lang/locale_keys.g.dart';
-import 'package:fluttermvvmtemplate/view/_product/_widgets/card/build_user_card.dart';
-import 'package:fluttermvvmtemplate/view/home/build/feed/model/house_model.dart';
-import 'package:fluttermvvmtemplate/view/home/build/feed/viewmodel/build_feed_view_model.dart';
+import '../../../../../core/base/view/base_widget.dart';
+import '../../../../../core/init/lang/locale_keys.g.dart';
+import '../../../../_product/_widgets/card/build_user_card.dart';
+import '../model/house_model.dart';
+import '../viewmodel/build_feed_view_model.dart';
 import 'package:kartal/kartal.dart';
 
 class BuildFeedView extends StatelessWidget {
@@ -50,8 +48,7 @@ class BuildFeedView extends StatelessWidget {
         buildTabBar(viewModel),
         buildSizedBoxLastestPageView(context, viewModel),
         context.emptySizedHeightBoxLow,
-        Text(LocaleKeys.menu_build_subTitle.tr(),
-            style: context.textTheme.headline5.copyWith(fontWeight: FontWeight.w600)),
+        Text(LocaleKeys.menu_build_subTitle.tr(), style: context.textTheme.headline5.copyWith(fontWeight: FontWeight.w600)),
         context.emptySizedHeightBoxLow,
         buildListViewBottom(viewModel),
       ],
@@ -102,16 +99,12 @@ class BuildFeedView extends StatelessWidget {
   }
 
   TabBar buildTabBar(BuildFeedViewModel viewModel) {
-    return TabBar(
-        indicator: viewModel.helper.circleDecoration,
-        indicatorSize: TabBarIndicatorSize.label,
-        isScrollable: true,
-        tabs: [
-          Tab(text: LocaleKeys.menu_build_tabbar_tab1.tr()),
-          Tab(text: LocaleKeys.menu_build_tabbar_tab2.tr()),
-          Tab(text: LocaleKeys.menu_build_tabbar_tab3.tr()),
-          Tab(text: LocaleKeys.menu_build_tabbar_tab4.tr()),
-        ]);
+    return TabBar(indicator: viewModel.helper.circleDecoration, indicatorSize: TabBarIndicatorSize.label, isScrollable: true, tabs: [
+      Tab(text: LocaleKeys.menu_build_tabbar_tab1.tr()),
+      Tab(text: LocaleKeys.menu_build_tabbar_tab2.tr()),
+      Tab(text: LocaleKeys.menu_build_tabbar_tab3.tr()),
+      Tab(text: LocaleKeys.menu_build_tabbar_tab4.tr()),
+    ]);
   }
 
   Center buildCenter() {

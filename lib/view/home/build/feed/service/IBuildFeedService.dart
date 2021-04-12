@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttermvvmtemplate/view/home/build/feed/model/house_model.dart';
 import 'package:vexana/vexana.dart';
+
+import '../model/house_model.dart';
 
 abstract class IBuildFeedService {
   final NetworkManager manager;

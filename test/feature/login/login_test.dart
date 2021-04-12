@@ -3,27 +3,28 @@ import 'package:fluttermvvmtemplate/core/base/model/base_error.dart';
 import 'package:fluttermvvmtemplate/core/base/model/base_model.dart';
 import 'package:fluttermvvmtemplate/view/authenticate/test/model/test_model.dart';
 
+// ignore: always_declare_return_types
 main() {
   setUp(() {
     print('here');
   });
-  test("User Login Fail Test", () {
+  test('User Login Fail Test', () {
     final isUserLogin = true;
     expect(isUserLogin, isTrue);
   });
 
   group('User Login Full Test', () {
-    test("User Login Fail Test", () {
+    test('User Login Fail Test', () {
       final isUserLogin = true;
       expect(isUserLogin, isTrue);
     });
 
-    test("User Login Fail Test", () {
+    test('User Login Fail Test', () {
       final isUserLogin = true;
       expect(isUserLogin, isTrue);
     });
 
-    test("User Login Fail Test", () {
+    test('User Login Fail Test', () {
       final isUserLogin = true;
       expect(isUserLogin, isTrue);
     });

@@ -13,10 +13,8 @@ class LocaleManager {
     });
   }
 
-  static preferencesInit() async {
-    if (instance._preferences == null) {
-      instance._preferences = await SharedPreferences.getInstance();
-    }
+  static Future<void> preferencesInit() async {
+    instance._preferences ??= await SharedPreferences.getInstance();
     return;
   }
 

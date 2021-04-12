@@ -1,11 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:fluttermvvmtemplate/core/constants/image/image_constants.dart';
-import 'package:fluttermvvmtemplate/core/extension/context_extension.dart';
-import 'package:fluttermvvmtemplate/core/extension/string_extension.dart';
-import 'package:fluttermvvmtemplate/core/init/lang/locale_keys.g.dart';
+import '../../../../core/constants/image/image_constants.dart';
+import '../../../../core/extension/context_extension.dart';
+import '../../../../core/extension/string_extension.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../../core/base/view/base_widget.dart';
 import '../viewmodel/login_view_model.dart';
 
@@ -54,8 +53,7 @@ class LoginView extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.vertical(bottom: Radius.circular(context.width * 0.1))),
       child: Padding(
-        padding:
-            EdgeInsets.only(left: context.width * 0.1, right: context.width * 0.1, bottom: context.width * 0.01),
+        padding: EdgeInsets.only(left: context.width * 0.1, right: context.width * 0.1, bottom: context.width * 0.01),
         child: buildTabBar(context),
       ),
     );
@@ -136,8 +134,7 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Widget buildTextForgot() =>
-      Align(alignment: Alignment.centerRight, child: Text(LocaleKeys.login_forgotText, textAlign: TextAlign.end));
+  Widget buildTextForgot() => Align(alignment: Alignment.centerRight, child: Text(LocaleKeys.login_forgotText, textAlign: TextAlign.end));
 
   Widget buildElevatedButtonLogin(BuildContext context, LoginViewModel viewModel) {
     return Observer(builder: (_) {

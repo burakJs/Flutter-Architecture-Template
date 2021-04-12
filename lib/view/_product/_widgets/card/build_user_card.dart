@@ -1,7 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttermvvmtemplate/view/home/build/feed/model/house_model.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../../home/build/feed/model/house_model.dart';
 
 class BuildUserCard extends StatelessWidget {
   final HouseModel model;

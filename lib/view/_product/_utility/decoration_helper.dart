@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:fluttermvvmtemplate/core/components/decoration/circle_decoration.dart';
-import 'package:fluttermvvmtemplate/core/extension/context_extension.dart';
+import '../../../core/components/decoration/circle_decoration.dart';
+import '../../../core/extension/context_extension.dart';
 
 class DecorationHelper {
   BuildContext context;

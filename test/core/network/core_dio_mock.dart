@@ -12,10 +12,11 @@ import 'package:fluttermvvmtemplate/core/init/network/ICoreDio.dart';
 import 'package:fluttermvvmtemplate/core/init/network/IResponseModel.dart';
 
 class CoreDioMock with DioMixin implements ICoreDioFull, Dio {
+  @override
   final BaseOptions options;
 
   CoreDioMock(this.options) {
-    this.options = options;
+    options = options;
     // this.interceptors.addAll(InterceptorsWrapper());
     // this.httpClientAdapter = DefaultHttpClientAdapter();
   }
@@ -41,6 +42,7 @@ class CoreDioMock with DioMixin implements ICoreDioFull, Dio {
     }
   }
 
+  @override
   Future<IResponseModel<R>> fetchDataNoNetwork<R, T extends BaseModel>(
     String path, {
     HttpTypes type,
@@ -50,7 +52,7 @@ class CoreDioMock with DioMixin implements ICoreDioFull, Dio {
     Options options,
     void Function(int p1, int p2) onReceiveProgress,
   }) async {
-    String dummyJson = """[
+    var dummyJson = '''[
   {
     "userId": 1,
     "id": 1,
@@ -62,7 +64,7 @@ class CoreDioMock with DioMixin implements ICoreDioFull, Dio {
     "id": 2,
     "title": "qui est esse",
     "body": "est rerum tempore vitae \$nsequi sint nihil reprehenderit dolor beatae ea dolores neque \$nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis \$nqui aperiam non debitis possimus qui neque nisi nulla"
-  }] """;
+  }] ''';
     final response = jsonDecode(dummyJson);
     final model = _responseParser<R, T>(parseModel, response);
     return ResponseModel<R>(data: model);

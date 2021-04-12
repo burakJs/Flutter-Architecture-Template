@@ -6,6 +6,7 @@ import 'package:fluttermvvmtemplate/core/init/network/ICoreDio.dart';
 import 'core_dio_mock.dart';
 import 'dio_mock_model.dart';
 
+// ignore: always_declare_return_types
 main() {
   ICoreDioFull service;
   setUp(() {
