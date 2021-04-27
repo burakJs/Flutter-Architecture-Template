@@ -1,8 +1,8 @@
 import '../../../core/extension/string_extension.dart';
 
 class SVGImagePaths {
-  static SVGImagePaths _instance;
-  static SVGImagePaths get instance {
+  static SVGImagePaths? _instance;
+  static SVGImagePaths? get instance {
     _instance ??= SVGImagePaths._init();
     return _instance;
   }

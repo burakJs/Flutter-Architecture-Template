@@ -6,12 +6,12 @@ part 'house_model.g.dart';
 @JsonSerializable()
 class HouseModel extends INetworkModel<HouseModel> {
   @JsonKey(name: '_id')
-  String id;
-  String title;
-  String description;
-  String image;
-  UserHouse user;
-  int iV;
+  String? id;
+  String? title;
+  String? description;
+  String? image;
+  UserHouse? user;
+  int? iV;
   HouseModel({this.id, this.title, this.description, this.image, this.user, this.iV});
 
   @override
@@ -27,10 +27,10 @@ class HouseModel extends INetworkModel<HouseModel> {
 
 @JsonSerializable()
 class UserHouse extends INetworkModel<UserHouse> {
-  String sId;
-  String name;
-  String image;
-  String date;
+  String? sId;
+  String? name;
+  String? image;
+  String? date;
   UserHouse({this.sId, this.name, this.image, this.date});
 
   @override

@@ -1,11 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
+import '../../../../core/base/view/base_widget.dart';
 import '../../../../core/constants/image/image_constants.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
-import '../../../../core/base/view/base_widget.dart';
 import '../viewmodel/login_view_model.dart';
 
 class LoginView extends StatelessWidget {
@@ -94,7 +95,7 @@ class LoginView extends StatelessWidget {
     return Observer(builder: (_) {
       return TextFormField(
         controller: viewModel.passwordController,
-        validator: (value) => value.isNotEmpty ? null : 'This Field Required',
+        validator: (value) => value!.isNotEmpty ? null : 'This Field Required',
         obscureText: viewModel.isLockOpen,
         decoration: InputDecoration(
           labelText: LocaleKeys.login_password.tr(),
@@ -117,7 +118,7 @@ class LoginView extends StatelessWidget {
   TextFormField buildTextFormFieldEmail(BuildContext context, LoginViewModel viewModel) {
     return TextFormField(
       controller: viewModel.emailController,
-      validator: (value) => value.isValidEmail ? null : 'Email is invalid',
+      validator: (value) => value!.isValidEmail ? null : 'Email is invalid',
       decoration: InputDecoration(
         labelText: LocaleKeys.login_email.tr(),
         labelStyle: context.textTheme.subtitle1,

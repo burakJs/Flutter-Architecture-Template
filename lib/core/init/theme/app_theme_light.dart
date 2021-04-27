@@ -5,10 +5,9 @@ import 'app_theme.dart';
 import 'light/ilight_theme_interface.dart';
 
 class AppThemeLight extends AppTheme with ILightTheme {
-  static AppThemeLight _instance;
+  static AppThemeLight? _instance;
   static AppThemeLight get instance {
-    _instance ??= AppThemeLight._init();
-    return _instance;
+    return _instance ??= AppThemeLight._init();
   }
 
   AppThemeLight._init();
@@ -19,7 +18,12 @@ class AppThemeLight extends AppTheme with ILightTheme {
         colorScheme: _appColorsScheme,
         scaffoldBackgroundColor: Color(0xfff1f3f8),
         textTheme: textTheme(),
-        appBarTheme: ThemeData.light().appBarTheme.copyWith(brightness: Brightness.light, iconTheme: IconThemeData(color: Colors.black87, size: 21)),
+        appBarTheme: ThemeData.light().appBarTheme.copyWith(
+              brightness: Brightness.light,
+              color: Colors.transparent,
+              elevation: 0,
+              iconTheme: IconThemeData(color: Colors.black87, size: 21),
+            ),
         inputDecorationTheme: InputDecorationTheme(
           focusColor: Colors.black12,
           labelStyle: TextStyle(),
@@ -43,7 +47,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
     return TabBarTheme(
       labelPadding: paddingInsetsAll.lowPaddingAll,
       labelColor: _appColorsScheme.onSecondary,
-      labelStyle: textThemeLight.headline5,
+      labelStyle: textThemeLight!.headline5,
       unselectedLabelColor: _appColorsScheme.onSecondary.withOpacity(0.2),
       // unselectedLabelStyle: textThemeLight.headline4.copyWith(color: colorSchemeLight.gray),
     );
@@ -51,18 +55,18 @@ class AppThemeLight extends AppTheme with ILightTheme {
 
   TextTheme textTheme() {
     return ThemeData.light().textTheme.copyWith(
-          headline1: textThemeLight.headline1,
-          headline2: textThemeLight.headline2,
-          overline: textThemeLight.overline,
+          headline1: textThemeLight!.headline1,
+          headline2: textThemeLight!.headline2,
+          overline: textThemeLight!.overline,
         );
   }
 
   ColorScheme get _appColorsScheme {
     return ColorScheme(
-      primary: colorSchemeLight.black,
+      primary: colorSchemeLight!.black,
       primaryVariant: Colors.white,
       secondary: Colors.yellow,
-      secondaryVariant: colorSchemeLight.azure,
+      secondaryVariant: colorSchemeLight!.azure,
       surface: Colors.deepOrange,
       background: Color(0xfff6f9fc),
       error: Colors.redAccent,
@@ -70,7 +74,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
       onSecondary: Colors.amber,
       onSurface: Colors.indigoAccent,
       onBackground: Colors.black12,
-      onError: Color(0xffffc93c),
+      onError: Color(0xFFFABD23),
       brightness: Brightness.light,
     );
   }

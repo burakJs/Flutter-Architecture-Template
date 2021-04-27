@@ -5,9 +5,9 @@ import 'package:fluttermvvmtemplate/core/init/network/network_manager.dart';
 // ignore: always_declare_return_types
 main() {
   // ignore: unused_local_variable
-  ICoreDio coreDio;
+  ICoreDio? coreDio;
   setUp(() {
-    coreDio = NetworkManager.instance.coreDio;
+    coreDio = NetworkManager.instance!.coreDio;
   });
   test('Sample Test', () {});
 }

@@ -40,6 +40,35 @@
         "findFriends":"Find Friends",
         "follow":"Follow",
         "following":"Following"
+    },
+    "game":{
+        "title":"Unity Game",
+        "newUpdate":"New Updated Games",
+        "viewAll":"View All",
+        "topDownload":"Top Download",
+        "tabbar":{
+            "tab1":"RACING",
+            "tab2":"SIMULATION",
+            "tab3":"CASUAL",
+            "tab4":"CARTOONY",
+            "tab5":"TOYS"
+        }
+    },
+    "setting":{
+        "title":"Settings",
+        "about":{
+            "title":"About Project",
+            "contribitions":"Project Contributors"
+        },
+        "core":{
+            "title":"Project Core",
+            "themeTitle":"Theme Change",
+            "themeDesc":"You can change application theme",
+            "langTitle":"Langugae Change",
+            "langDesc":"You can change application langugae"
+        },
+        "exit":"Exit",
+        "applicationTour":"Application Tour"
     }
 }
 }

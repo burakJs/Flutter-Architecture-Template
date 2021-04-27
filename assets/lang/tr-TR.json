@@ -1,0 +1,77 @@
+{
+    "welcome":"Uygulamama Hoşgeldiniz",
+    "onBoard":{
+        "page1":
+            {
+                "title":"İyi yap",
+                "desc":"Yalnız değilsin.Başka bir dünyaya gitmek için eşsiz bir yeteneğin var"
+            },
+        "page2":
+            {
+                "title":"İyi yap",
+                "desc":"Yalnız değilsin.Başka bir dünyaya gitmek için eşsiz bir yeteneğin var"
+            },
+        "page3":
+            {
+                "title":"İyi yap",
+                "desc":"Yalnız değilsin.Başka bir dünyaya gitmek için eşsiz bir yeteneğin var"
+            }
+    },
+    "login":{
+        "tab1":"Oturum aç",
+        "tab2":"Kaydol",
+        "email":"E-posta",
+        "password":"Parola",
+        "forgotText":"Parolanızı mı unuttunuz",
+        "login":"Oturum aç",
+        "dontAccount":"Hesap yok"
+    },
+"menu":{
+    "build":{
+        "tabbar":{
+            "tab1":"En son",
+            "tab2":"Dekoratif",
+            "tab3":"Müzik",
+            "tab4":"Stil"
+        },
+        "subTitle":"Önerilen"
+    },
+    "social":{
+        "cancel":"İptal etmek",
+        "next":"Sonraki",
+        "search":"Arama",
+        "findFriends":"Arkadaşları bul",
+        "follow":"Takip et",
+        "following":"Takip etme"
+    },
+    "game":{
+        "title":"Birlik oyunu",
+        "newUpdate":"Yeni Güncellenmiş Oyunlar",
+        "viewAll":"Hepsini gör",
+        "topDownload":"En iyi indirme",
+        "tabbar":{
+            "tab1":"YARIŞ",
+            "tab2":"Simülasyon",
+            "tab3":"Gündelik",
+            "tab4":"Karikatür",
+            "tab5":"Oyuncaklar"
+        }
+    },
+    "setting":{
+        "title":"Ayarlar",
+        "about":{
+            "title":"Proje Hakkında",
+            "contribitions":"Proje Katkıda Bulunanlar"
+        },
+        "core":{
+            "title":"Uygulama Ayarları",
+            "themeTitle":"Tema değişikliği",
+            "themeDesc":"Uygulama temasını değiştirebilirsiniz",
+            "langTitle":"Dil değişimi",
+            "langDesc":"Uygulama dilini değiştirebilirsiniz"
+        },
+        "exit":"Çıkış",
+        "applicationTour":"Uygulama Turu"
+    }
+}
+}

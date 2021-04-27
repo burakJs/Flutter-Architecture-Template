@@ -7,8 +7,8 @@ import '../../../home/build/feed/model/house_model.dart';
 class BuildUserCard extends StatelessWidget {
   final HouseModel model;
   final bool isLiked;
-  final Function(String id) onPressedLikeId;
-  const BuildUserCard({Key key, @required this.model, this.onPressedLikeId, this.isLiked = false})
+  final Function(String? id)? onPressedLikeId;
+  const BuildUserCard({Key? key, required this.model, this.onPressedLikeId, this.isLiked = false})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -17,9 +17,9 @@ class BuildUserCard extends StatelessWidget {
       children: [
         ListTile(
           contentPadding: EdgeInsets.zero,
-          leading: CircleAvatar(backgroundImage: NetworkImage(model.user.image)),
-          title: Text(model.user.name),
-          subtitle: Text(model.user.date),
+          leading: CircleAvatar(backgroundImage: NetworkImage(model.user!.image!)),
+          title: Text(model.user!.name!),
+          subtitle: Text(model.user!.date!),
           trailing: buildIconButton(),
         ),
         context.emptySizedHeightBoxLow,
@@ -33,11 +33,11 @@ class BuildUserCard extends StatelessWidget {
       // direction: Axis.vertical,
       children: [
         AutoSizeText(
-          model.title,
-          style: context.textTheme.headline5.copyWith(fontWeight: FontWeight.w600),
+          model.title!,
+          style: context.textTheme.headline5!.copyWith(fontWeight: FontWeight.w600),
           maxLines: 1,
         ),
-        AutoSizeText(model.description),
+        AutoSizeText(model.description!),
       ],
     );
   }
@@ -50,7 +50,7 @@ class BuildUserCard extends StatelessWidget {
         // color: feedViewModel.likeItems.contains(model.id) ? Colors.pink : Colors.white30,
       ),
       onPressed: () {
-        if (onPressedLikeId != null) onPressedLikeId(model.id);
+        if (onPressedLikeId != null) onPressedLikeId!(model.id);
       },
     );
   }

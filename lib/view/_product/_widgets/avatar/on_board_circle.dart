@@ -5,7 +5,7 @@ import '../../../../core/extension/context_extension.dart';
 class OnBoardCircle extends StatelessWidget {
   final isSelected;
 
-  const OnBoardCircle({Key key, @required this.isSelected}) : super(key: key);
+  const OnBoardCircle({Key? key, required this.isSelected}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(

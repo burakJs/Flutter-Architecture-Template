@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/components/button/title_text_button.dart';
 
 class FaceBookButton extends StatelessWidget {
-  final Function(FaceBookModel data, {String errorMessage}) onComplete;
+  final Function(FaceBookModel? data, {String? errorMessage})? onComplete;
 
-  const FaceBookButton({Key key, this.onComplete}) : super(key: key);
+  const FaceBookButton({Key? key, this.onComplete}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TitleTextButton(
@@ -13,9 +13,9 @@ class FaceBookButton extends StatelessWidget {
       onPressed: () {
         final isLengthSixCharacter = 'adaasddasad'.length == 6;
         if (isLengthSixCharacter) {
-          onComplete(FaceBookModel('asdsadsad', 'asdasdasd'));
+          onComplete!(FaceBookModel('asdsadsad', 'asdasdasd'));
         } else {
-          onComplete(null, errorMessage: 'Facebook user not found');
+          onComplete!(null, errorMessage: 'Facebook user not found');
         }
       },
     );

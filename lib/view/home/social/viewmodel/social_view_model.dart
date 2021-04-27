@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:fluttermvvmtemplate/core/base/model/base_view_model.dart';
-import 'package:fluttermvvmtemplate/view/_product/_model/query/friend_query.dart';
-import 'package:fluttermvvmtemplate/view/_product/_utility/thorottle_helper.dart';
-import 'package:fluttermvvmtemplate/view/home/social/model/social_user_model.dart';
-import 'package:fluttermvvmtemplate/view/home/social/service/ISocialService.dart';
-import 'package:fluttermvvmtemplate/view/home/social/service/social_service.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../../../core/base/model/base_view_model.dart';
+import '../../../_product/_model/query/friend_query.dart';
+import '../../../_product/_utility/thorottle_helper.dart';
+import '../model/social_user_model.dart';
+import '../service/ISocialService.dart';
+
 part 'social_view_model.g.dart';
 
 class SocialViewModel = _SocialViewModelBase with _$SocialViewModel;
 
 abstract class _SocialViewModelBase with Store, BaseViewModel {
-  ISocialService _socialService;
-  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+  final ISocialService _socialService;
   int _page = 0;
-  String _query = '';
+  String? _query = '';
   bool isLazyLoadDataFinish = false;
-
-  ThorottleStringHelper _thorottleStringHelper;
+  int get page => _page;
+  late ThorottleStringHelper _thorottleStringHelper;
 
   @observable
   List<SocialUser> socialUserList = [];
@@ -28,11 +28,12 @@ abstract class _SocialViewModelBase with Store, BaseViewModel {
   @observable
   bool isPageLazyLoad = false;
 
+  _SocialViewModelBase(this._socialService);
+
   @override
-  void setContext(BuildContext context) => this.context = context;
+  void setContext(BuildContext? context) => this.context = context;
   @override
   void init() {
-    _socialService = SocialService(vexanaManager.networkManager, scaffoldKey);
     _thorottleStringHelper = ThorottleStringHelper();
     _fetchAllUser();
   }
@@ -69,9 +70,9 @@ abstract class _SocialViewModelBase with Store, BaseViewModel {
   }
 
   @action
-  void fetchAllSearchQuery(String text) {
+  Future<void> fetchAllSearchQuery(String text) async {
     _thorottleStringHelper.onDelayTouch(text, (text) {
-      if (_query.isEmpty) {
+      if (_query!.isEmpty) {
         _page = -1;
       }
       _query = text;

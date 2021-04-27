@@ -1,8 +1,5 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
-
 import '../../base/model/base_error.dart';
 import '../../base/model/base_model.dart';
 import '../../constants/enums/http_request_enum.dart';
@@ -25,12 +22,12 @@ class CoreDio with DioMixin implements Dio, ICoreDio {
   @override
   Future<IResponseModel<R>> fetchData<R, T extends BaseModel>(
     String path, {
-    @required HttpTypes type,
-    @required T parseModel,
+    required HttpTypes type,
+    required T parseModel,
     dynamic data,
-    Map<String, dynamic> queryParameters,
-    Options options,
-    void Function(int, int) onReceiveProgress,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    void Function(int, int)? onReceiveProgress,
   }) async {
     final response = await request(path, data: data, options: Options(method: type.rawValue));
     switch (response.statusCode) {
@@ -38,7 +35,6 @@ class CoreDio with DioMixin implements Dio, ICoreDio {
       case HttpStatus.accepted:
         final model = _responseParser<R, T>(parseModel, _responseParser);
         return ResponseModel<R>(data: model);
-        break;
       default:
         return ResponseModel(error: BaseError('message'));
     }

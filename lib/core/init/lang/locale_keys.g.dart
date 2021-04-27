@@ -34,6 +34,30 @@ abstract class  LocaleKeys {
   static const menu_social_follow = 'menu.social.follow';
   static const menu_social_following = 'menu.social.following';
   static const menu_social = 'menu.social';
+  static const menu_game_title = 'menu.game.title';
+  static const menu_game_newUpdate = 'menu.game.newUpdate';
+  static const menu_game_viewAll = 'menu.game.viewAll';
+  static const menu_game_topDownload = 'menu.game.topDownload';
+  static const menu_game_tabbar_tab1 = 'menu.game.tabbar.tab1';
+  static const menu_game_tabbar_tab2 = 'menu.game.tabbar.tab2';
+  static const menu_game_tabbar_tab3 = 'menu.game.tabbar.tab3';
+  static const menu_game_tabbar_tab4 = 'menu.game.tabbar.tab4';
+  static const menu_game_tabbar_tab5 = 'menu.game.tabbar.tab5';
+  static const menu_game_tabbar = 'menu.game.tabbar';
+  static const menu_game = 'menu.game';
+  static const menu_setting_title = 'menu.setting.title';
+  static const menu_setting_about_title = 'menu.setting.about.title';
+  static const menu_setting_about_contribitions = 'menu.setting.about.contribitions';
+  static const menu_setting_about = 'menu.setting.about';
+  static const menu_setting_core_title = 'menu.setting.core.title';
+  static const menu_setting_core_themeTitle = 'menu.setting.core.themeTitle';
+  static const menu_setting_core_themeDesc = 'menu.setting.core.themeDesc';
+  static const menu_setting_core_langTitle = 'menu.setting.core.langTitle';
+  static const menu_setting_core_langDesc = 'menu.setting.core.langDesc';
+  static const menu_setting_core = 'menu.setting.core';
+  static const menu_setting_exit = 'menu.setting.exit';
+  static const menu_setting_applicationTour = 'menu.setting.applicationTour';
+  static const menu_setting = 'menu.setting';
   static const menu = 'menu';
 
 }

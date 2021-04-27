@@ -23,12 +23,12 @@ class CoreDioMock with DioMixin implements ICoreDioFull, Dio {
   @override
   Future<IResponseModel<R>> fetchData<R, T extends BaseModel>(
     String path, {
-    HttpTypes type,
-    T parseModel,
+    HttpTypes? type,
+    T? parseModel,
     data,
-    Map<String, Object> queryParameters,
-    Options options,
-    void Function(int p1, int p2) onReceiveProgress,
+    Map<String, Object>? queryParameters,
+    Options? options,
+    void Function(int p1, int p2)? onReceiveProgress,
   }) async {
     final response = await request(path, data: data, options: Options(method: type.rawValue));
     switch (response.statusCode) {
@@ -36,7 +36,6 @@ class CoreDioMock with DioMixin implements ICoreDioFull, Dio {
       case HttpStatus.accepted:
         final model = _responseParser<R, T>(parseModel, response.data);
         return ResponseModel<R>(data: model);
-        break;
       default:
         return ResponseModel(error: BaseError('message'));
     }
@@ -45,12 +44,12 @@ class CoreDioMock with DioMixin implements ICoreDioFull, Dio {
   @override
   Future<IResponseModel<R>> fetchDataNoNetwork<R, T extends BaseModel>(
     String path, {
-    HttpTypes type,
-    T parseModel,
+    HttpTypes? type,
+    T? parseModel,
     data,
-    Map<String, Object> queryParameters,
-    Options options,
-    void Function(int p1, int p2) onReceiveProgress,
+    Map<String, Object>? queryParameters,
+    Options? options,
+    void Function(int p1, int p2)? onReceiveProgress,
   }) async {
     var dummyJson = '''[
   {
@@ -70,13 +69,13 @@ class CoreDioMock with DioMixin implements ICoreDioFull, Dio {
     return ResponseModel<R>(data: model);
   }
 
-  R _responseParser<R, T>(BaseModel model, dynamic data) {
+  R? _responseParser<R, T>(BaseModel? model, dynamic data) {
     if (data is List) {
-      return data.map((e) => model.fromJson(e)).toList().cast<T>() as R;
+      return data.map((e) => model!.fromJson(e)).toList().cast<T>() as R;
     } else if (data is Map) {
-      return model.fromJson(data);
+      return model!.fromJson(data as Map<String, Object>);
     } else {
-      return data as R;
+      return data as R?;
     }
   }
 }

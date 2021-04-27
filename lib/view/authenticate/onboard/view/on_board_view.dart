@@ -88,13 +88,13 @@ class OnBoardView extends StatelessWidget {
   FloatingActionButton buildFloatingActionButtonSkip(BuildContext context, OnBoardViewModel viewModel) {
     return FloatingActionButton(
         backgroundColor: context.colors.secondaryVariant,
+        onPressed: () {
+          viewModel.completeToOnBoard();
+        },
         child: Icon(
           Icons.keyboard_arrow_right,
           color: context.colors.primaryVariant,
-        ),
-        onPressed: () {
-          viewModel.completeToOnBoard();
-        });
+        ));
   }
 
   Column buildColumnBody(BuildContext context, OnBoardModel model) {
@@ -119,7 +119,7 @@ class OnBoardView extends StatelessWidget {
   AutoLocaleText buildAutoLocaleTextTitle(OnBoardModel model, BuildContext context) {
     return AutoLocaleText(
       value: model.description,
-      style: Theme.of(context).textTheme.subtitle1.copyWith(fontWeight: FontWeight.w100),
+      style: Theme.of(context).textTheme.subtitle1!.copyWith(fontWeight: FontWeight.w100),
     );
   }
 
@@ -127,10 +127,7 @@ class OnBoardView extends StatelessWidget {
     return AutoLocaleText(
       value: model.title,
       textAlign: TextAlign.center,
-      style: Theme.of(context)
-          .textTheme
-          .headline3
-          .copyWith(fontWeight: FontWeight.bold, color: context.colors.onPrimary),
+      style: Theme.of(context).textTheme.headline3!.copyWith(fontWeight: FontWeight.bold, color: context.colors.onPrimary),
     );
   }
 

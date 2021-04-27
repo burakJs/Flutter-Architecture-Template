@@ -73,19 +73,17 @@ mixin _$SocialViewModel on _SocialViewModelBase, Store {
         .run(() => super.fetchAllUserLoading(index));
   }
 
-  final _$_SocialViewModelBaseActionController =
-      ActionController(name: '_SocialViewModelBase');
+  final _$fetchAllSearchQueryAsyncAction =
+      AsyncAction('_SocialViewModelBase.fetchAllSearchQuery');
 
   @override
-  void fetchAllSearchQuery(String text) {
-    final _$actionInfo = _$_SocialViewModelBaseActionController.startAction(
-        name: '_SocialViewModelBase.fetchAllSearchQuery');
-    try {
-      return super.fetchAllSearchQuery(text);
-    } finally {
-      _$_SocialViewModelBaseActionController.endAction(_$actionInfo);
-    }
+  Future<void> fetchAllSearchQuery(String text) {
+    return _$fetchAllSearchQueryAsyncAction
+        .run(() => super.fetchAllSearchQuery(text));
   }
+
+  final _$_SocialViewModelBaseActionController =
+      ActionController(name: '_SocialViewModelBase');
 
   @override
   void _changeLoading() {

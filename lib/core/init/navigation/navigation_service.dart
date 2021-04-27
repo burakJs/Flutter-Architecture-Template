@@ -11,12 +11,12 @@ class NavigationService implements INavigationService {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   @override
-  Future<void> navigateToPage({String path, Object object}) async {
-    await navigatorKey.currentState.pushNamed(path, arguments: object);
+  Future<void> navigateToPage({String? path, Object? object}) async {
+    await navigatorKey.currentState!.pushNamed(path!, arguments: object);
   }
 
   @override
-  Future<void> navigateToPageClear({String path, Object object}) async {
-    await navigatorKey.currentState.pushNamedAndRemoveUntil(path, (Route<dynamic> route) => false, arguments: object);
+  Future<void> navigateToPageClear({String? path, Object? object}) async {
+    await navigatorKey.currentState!.pushNamedAndRemoveUntil(path!, (Route<dynamic> route) => false, arguments: object);
   }
 }

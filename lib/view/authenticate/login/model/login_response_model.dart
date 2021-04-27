@@ -5,7 +5,7 @@ part 'login_response_model.g.dart';
 
 @JsonSerializable()
 class LoginResponseModel extends INetworkModel<LoginResponseModel> {
-  final String token;
+  final String? token;
 
   LoginResponseModel({this.token});
 

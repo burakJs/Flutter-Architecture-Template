@@ -5,8 +5,8 @@ part 'login_model.g.dart';
 
 @JsonSerializable()
 class LoginModel extends INetworkModel<LoginModel> {
-  final String email;
-  final String password;
+  final String? email;
+  final String? password;
 
   LoginModel({this.email, this.password});
 

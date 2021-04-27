@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../extension/context_extension.dart';
 
 class IndicatorListView extends StatelessWidget {
-  final int itemCount;
-  final int currentIndex;
-  final Widget Function(int index) onListItem;
-  const IndicatorListView({Key key, this.itemCount, this.onListItem, this.currentIndex}) : super(key: key);
+  final int? itemCount;
+  final int? currentIndex;
+  final Widget Function(int index)? onListItem;
+  const IndicatorListView({Key? key, this.itemCount, this.onListItem, this.currentIndex}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -31,7 +31,7 @@ class IndicatorListView extends StatelessWidget {
       child: AnimatedOpacity(
         opacity: opacityValue(index),
         duration: context.lowDuration,
-        child: onListItem(index),
+        child: onListItem!(index),
       ),
     );
   }

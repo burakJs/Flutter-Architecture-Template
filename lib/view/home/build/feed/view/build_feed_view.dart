@@ -1,12 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:kartal/kartal.dart';
+
 import '../../../../../core/base/view/base_widget.dart';
 import '../../../../../core/init/lang/locale_keys.g.dart';
 import '../../../../_product/_widgets/card/build_user_card.dart';
 import '../model/house_model.dart';
 import '../viewmodel/build_feed_view_model.dart';
-import 'package:kartal/kartal.dart';
 
 class BuildFeedView extends StatelessWidget {
   @override
@@ -31,7 +32,7 @@ class BuildFeedView extends StatelessWidget {
             child: Observer(builder: (_) {
               return viewModel.isLoading
                   ? buildCenter()
-                  : viewModel.houseModels == null || viewModel.houseModels.isEmpty
+                  : viewModel.houseModels == null || viewModel.houseModels!.isEmpty
                       ? Center(
                           child: Text('Not Found'),
                         )
@@ -48,7 +49,7 @@ class BuildFeedView extends StatelessWidget {
         buildTabBar(viewModel),
         buildSizedBoxLastestPageView(context, viewModel),
         context.emptySizedHeightBoxLow,
-        Text(LocaleKeys.menu_build_subTitle.tr(), style: context.textTheme.headline5.copyWith(fontWeight: FontWeight.w600)),
+        Text(LocaleKeys.menu_build_subTitle.tr(), style: context.textTheme.headline5!.copyWith(fontWeight: FontWeight.w600)),
         context.emptySizedHeightBoxLow,
         buildListViewBottom(viewModel),
       ],
@@ -63,7 +64,7 @@ class BuildFeedView extends StatelessWidget {
           child: Card(
             child: Row(
               children: [
-                Expanded(flex: 3, child: Image.network(viewModel.houseModels[index].image)),
+                Expanded(flex: 3, child: Image.network(viewModel.houseModels![index].image!)),
                 Expanded(flex: 9, child: buildObserver(viewModel, index)),
               ],
             ),
@@ -76,12 +77,14 @@ class BuildFeedView extends StatelessWidget {
   Observer buildObserver(BuildFeedViewModel viewModel, int index) {
     return Observer(builder: (_) {
       return BuildUserCard(
-        model: viewModel.houseModels[index],
+        model: viewModel.houseModels![index],
         isLiked: viewModel.likeItems.contains(
-          viewModel.houseModels[index].id,
+          viewModel.houseModels![index].id,
         ),
         onPressedLikeId: (id) {
-          viewModel.onLikeItemPressed(id);
+          if (id != null) {
+            viewModel.onLikeItemPressed(id);
+          }
         },
       );
     });
@@ -123,7 +126,7 @@ class BuildFeedView extends StatelessWidget {
             left: -50,
             right: -50,
             child: Image.network(
-              model.image,
+              model.image!,
               fit: BoxFit.cover,
             ),
           ),
@@ -147,7 +150,9 @@ class BuildFeedView extends StatelessWidget {
             model: model,
             isLiked: viewModel.likeItems.contains(model.id),
             onPressedLikeId: (id) {
-              viewModel.onLikeItemPressed(id);
+              if (id != null) {
+                viewModel.onLikeItemPressed(id);
+              }
             },
           );
         }),

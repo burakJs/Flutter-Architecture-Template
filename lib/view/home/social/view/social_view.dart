@@ -1,19 +1,23 @@
-import 'package:animations/animations.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:fluttermvvmtemplate/core/base/view/base_widget.dart';
-import 'package:fluttermvvmtemplate/core/init/lang/locale_keys.g.dart';
-import 'package:fluttermvvmtemplate/view/_product/_widgets/animation/social_card_animation.dart';
-import 'package:fluttermvvmtemplate/view/_product/_widgets/list-tile/friend_card.dart';
-import 'package:fluttermvvmtemplate/view/home/social/viewmodel/social_view_model.dart';
 import 'package:kartal/kartal.dart';
 
+import '../../../../core/base/view/base_widget.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
+import '../../../../core/init/network/vexana_manager.dart';
+import '../../../_product/_widgets/animation/social_card_animation.dart';
+import '../../../_product/_widgets/list-tile/friend_card.dart';
+import '../service/social_service.dart';
+import '../viewmodel/social_view_model.dart';
+
 class SocialView extends StatelessWidget {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return BaseView<SocialViewModel>(
-      viewModel: SocialViewModel(),
+      viewModel: SocialViewModel(SocialService(VexanaManager.instance.networkManager, scaffoldKey)),
       onModelReady: (model) {
         model.setContext(context);
       },
@@ -60,9 +64,9 @@ class SocialView extends StatelessWidget {
           onPressed: () {},
           child: Text(
             LocaleKeys.menu_social_next,
-            style: context.textTheme.subtitle1.copyWith(
+            style: context.textTheme.subtitle1!.copyWith(
               fontWeight: FontWeight.w600,
-              color: context.appTheme.buttonTheme.colorScheme.onError,
+              color: context.appTheme.buttonTheme.colorScheme!.onError,
             ),
           ).tr(),
         ),
@@ -73,7 +77,7 @@ class SocialView extends StatelessWidget {
   Text buildTextFindFriends(BuildContext context) {
     return Text(
       LocaleKeys.menu_social_findFriends.tr(),
-      style: context.textTheme.headline3.copyWith(
+      style: context.textTheme.headline3!.copyWith(
         fontWeight: FontWeight.bold,
         color: context.colorScheme.onSecondary,
       ),

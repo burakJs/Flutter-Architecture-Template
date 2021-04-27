@@ -17,7 +17,7 @@ class TestView extends StatefulWidget {
 }
 
 class _TestViewState extends BaseState<TestView> {
-  TestViewModel viewModel;
+  late TestViewModel viewModel;
   @override
   Widget build(BuildContext context) {
     return BaseView<TestViewModel>(
@@ -75,6 +75,6 @@ class _TestViewState extends BaseState<TestView> {
 
 extension _FormArea on _TestViewState {
   TextFormField get mailField => TextFormField(
-        validator: (value) => value.isValidEmail ? null : 'Email is invalid',
+        validator: (value) => value!.isValidEmail ? null : 'Email is invalid',
       );
 }

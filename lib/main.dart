@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
+
 import 'package:provider/provider.dart';
 
 import 'core/constants/app/app_constant.dart';
@@ -9,28 +11,41 @@ import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
 import 'core/init/notifier/provider_list.dart';
 import 'core/init/notifier/theme_notifier.dart';
-import 'view/authenticate/login/view/login_view.dart';
+import 'view/settings/view/settings_view.dart';
 
-void main() {
-  LocaleManager.preferencesInit();
+Future<void> main() async {
+  await _init();
   runApp(
     MultiProvider(
       providers: [...ApplicationProvider.instance.dependItems],
       child: EasyLocalization(
         supportedLocales: LanguageManager.instance.supportedLocales,
         path: ApplicationConstants.LANG_ASSET_PATH,
+        startLocale: LanguageManager.instance.enLocale,
         child: MyApp(),
       ),
     ),
   );
 }
 
+Future<void> _init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await LocaleManager.prefrencesInit();
+  await EasyLocalization.ensureInitialized();
+  await DeviceUtility.instance!.initPackageInfo();
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: Provider.of<ThemeNotifier>(context, listen: false).currentTheme,
-      home: LoginView(),
+      debugShowCheckedModeBanner: false,
+      theme: context.watch<ThemeNotifier>().currentTheme,
+      // Provider.of<ThemeNotifier>(context, listen: false).currentTheme,
+      home: SettingsView(),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       onGenerateRoute: NavigationRoute.instance.generateRoute,
       navigatorKey: NavigationService.instance.navigatorKey,
     );

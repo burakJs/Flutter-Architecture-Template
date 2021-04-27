@@ -33,21 +33,21 @@ abstract class _OnBoardViewModelBase with Store, BaseViewModel {
       OnBoardModel(
         LocaleKeys.onBoard_page1_title,
         LocaleKeys.onBoard_page1_desc,
-        SVGImagePaths.instance.adventureSVG,
+        SVGImagePaths.instance!.adventureSVG,
       ),
     );
     onBoardItems.add(
       OnBoardModel(
         LocaleKeys.onBoard_page2_title,
         LocaleKeys.onBoard_page2_desc,
-        SVGImagePaths.instance.calendarSVG,
+        SVGImagePaths.instance!.calendarSVG,
       ),
     );
     onBoardItems.add(
       OnBoardModel(
         LocaleKeys.onBoard_page3_title,
         LocaleKeys.onBoard_page3_desc,
-        SVGImagePaths.instance.readingSVG,
+        SVGImagePaths.instance!.readingSVG,
       ),
     );
   }
@@ -61,7 +61,10 @@ abstract class _OnBoardViewModelBase with Store, BaseViewModel {
     changeLoading();
     await localeManager.setBoolValue(PreferencesKey.IS_FIRST_APP, true);
     changeLoading();
-
-    await navigationService.navigateToPageClear(path: NavigationConstants.TEST_VIEW);
+    if (navigationService.navigatorKey.currentState!.canPop()) {
+      navigationService.navigatorKey.currentState!.pop();
+    } else {
+      await navigationService.navigateToPageClear(path: NavigationConstants.TEST_VIEW);
+    }
   }
 }
