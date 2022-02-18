@@ -16,6 +16,7 @@ class LoginView extends StatelessWidget {
       viewModel: LoginViewModel(),
       onModelReady: (model) {
         model.setContext(context);
+        model.init();
       },
       onPageBuilder: (BuildContext context, LoginViewModel value) => DefaultTabController(
         length: 2,
@@ -135,7 +136,7 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Widget buildTextForgot() => Align(alignment: Alignment.centerRight, child: Text(LocaleKeys.login_forgotText, textAlign: TextAlign.end));
+  Widget buildTextForgot() => Align(alignment: Alignment.centerRight, child: Text(LocaleKeys.login_forgotText.tr(), textAlign: TextAlign.end));
 
   Widget buildElevatedButtonLogin(BuildContext context, LoginViewModel viewModel) {
     return Observer(builder: (_) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttermvvmtemplate/product/exception/navigation_model_not_found.dart';
+import 'package:fluttermvvmtemplate/view/authenticate/login/view/login_view.dart';
 import 'package:fluttermvvmtemplate/view/authenticate/onboard/view/on_board_view.dart';
 
 import 'package:fluttermvvmtemplate/view/settings/model/settings_dynamic.dart';
@@ -20,6 +21,8 @@ class NavigationRoute {
     switch (args.name) {
       case NavigationConstants.TEST_VIEW:
         return normalNavigate(TestView());
+      case NavigationConstants.LOGIN:
+        return normalNavigate(LoginView());
       case NavigationConstants.ON_BOARD:
         return normalNavigate(OnBoardView());
       case NavigationConstants.SETTINGS_WEB_VIEW:

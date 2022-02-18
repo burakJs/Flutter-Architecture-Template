@@ -23,10 +23,11 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
   @override
   void setContext(BuildContext context) => this.context = context;
   @override
-  void init() {
+  void init() async {
     loginService = LoginService(VexanaManager.instance.networkManager);
     emailController = TextEditingController();
     passwordController = TextEditingController();
+    print(localeManager.getStringValue(PreferencesKey.TOKEN));
   }
 
   @observable
@@ -46,7 +47,7 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
             content: Text(response.token!),
           ),
         );
-        await localeManager!.setStringValue(PreferencesKey.TOKEN, response.token!);
+        await localeManager.setStringValue(PreferencesKey.TOKEN, response.token!);
       }
     }
     isLoadingChange();
